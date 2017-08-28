@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Movies";
+}
+
+<h2>Movies</h2>
+<body>
+    <h1>Movies 得到的结果</h1>
+   @Html.Raw(ViewBag.HtmlStr)
+
+<hr />
+
+
+<script>
+    /*
+    $.ajax({
+        url: "/FriendLink/GetPersonInfo",
+        type: "POST",
+        dataType: "json",
+        data: {},
+        success: function (data) {
+            $("#friendContent").html(data.Name);
+        }
+    })
+    */
+    $.getJSON("/FriendLink/GetPersonInfo", null, function (data) {
+        $("#friendContent").html(data.Name);
+    })
+</script>
+</body>
+
+<!--参考资料：http://www.cnblogs.com/lmfeng/p/3596175.html-->
